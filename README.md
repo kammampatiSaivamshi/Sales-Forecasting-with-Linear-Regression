@@ -1,5 +1,7 @@
 -- Sales Forecasting Using Linear Regression
+
 -- Project Overview
+
 This notebook presents a simple machine learning workflow to forecast sales based on historical data using Linear Regression. The objective is to predict future sales trends and visualize actual vs predicted sales, enabling data-driven decision-making for inventory or resource planning.
 
 -- Dataset Requirements
