@@ -106,3 +106,10 @@ This analysis allows the following key insights:
 
 Feel free to contribute to this project by submitting bug reports, features, or enhancements through issues or pull requests.
 
+### 🙋‍♂️ Author
+
+**Vamshi K**
+*Aspiring Data Scientist*
+📫 Reach me on [LinkedIn](https://www.linkedin.com)
+
+
