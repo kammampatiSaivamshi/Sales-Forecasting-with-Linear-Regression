@@ -1,81 +1,108 @@
--- Sales Forecasting Using Linear Regression
+# Netflix User Behavior Analysis
 
--- Project Overview
+## Overview
 
-This notebook presents a simple machine learning workflow to forecast sales based on historical data using Linear Regression. The objective is to predict future sales trends and visualize actual vs predicted sales, enabling data-driven decision-making for inventory or resource planning.
+This project aims to analyze Netflix user behavior to provide insights into viewing habits, genre preferences, and binge-watching patterns. By examining a dataset of Netflix viewing data, we aim to:
 
--- Dataset Requirements
-File Format: .csv
+* Identify top genres and their trends over time.
+* Analyze the number of hours watched per user.
+* Visualize binge-watching behaviors.
+* Explore ratings vs. genres to offer personalized content recommendations.
 
--- Expected Columns:
+The insights derived from this analysis can help Netflix or other streaming platforms optimize their content recommendations and improve user engagement strategies.
 
-Date – The date of the sale (required).
+## Dataset
 
-Product – Name or ID of the product.
+The dataset used in this project contains information about Netflix viewing habits. The data includes details on user behavior, such as:
 
-Quantity – Number of units sold.
+* **User ID**: Unique identifier for each user.
+* **Genre**: The genre of the movie or TV show watched.
+* **Watch Hours**: Total watch hours per user or per title.
+* **Rating**: User ratings for the titles watched.
+* **Date**: Date of the viewing session.
+* **Other Features**: Information like device type, location, or subscription status (if available).
 
-Revenue – Sales revenue.
+## Files
 
--- Steps in the Notebook
--- Import Libraries
+* `Netflix_User_Behavior_Analysis.ipynb`: Jupyter notebook that contains all the analysis, visualizations, and model building.
+* `netflix_user_data.csv`: The CSV file containing Netflix viewing behavior data.
 
-pandas, numpy, matplotlib, seaborn, sklearn
+## Requirements
 
--- Load & Inspect Data
+To run this project, you will need the following Python libraries:
 
-Load CSV data into a DataFrame.
+* pandas
+* numpy
+* matplotlib
+* seaborn
+* scikit-learn
+* plotly
 
-Handle missing values and check data types.
+## Installation
 
--- Preprocessing
+You can install the required dependencies by using the following command:
 
-Convert Date to datetime format.
+```bash
+pip install -r requirements.txt
+```
 
-Extract features like Day, Month, Year.
+If you don’t have `requirements.txt`, you can manually install the necessary libraries:
 
--- Exploratory Data Analysis (EDA)
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn plotly
+```
 
-Plot sales trends over time.
+## Usage
 
-Identify seasonal patterns.
+1. **Load the Data**: Start by loading the dataset into a pandas DataFrame for exploration.
 
--- Model Building
+```python
+import pandas as pd
 
-Features: Day, Month, Year
+data = pd.read_csv('netflix_user_data.csv')
+```
 
-Model: Linear Regression
+2. **Data Preprocessing**: Clean the dataset by handling missing values, converting categorical features, and preparing the data for analysis.
 
-Train-test split
+3. **Exploratory Data Analysis (EDA)**: Explore the dataset by visualizing trends, such as top genres, viewing hours, and user ratings.
 
-Evaluation: MAE, MSE, RMSE
+4. **User Behavior Analysis**:
 
--- Future Forecasting
+   * Identify binge-watching behaviors (e.g., users who watched multiple episodes or movies in a short time frame).
+   * Analyze watch hours per user and compare it with their genre preferences.
+   * Visualize ratings vs. genres to understand user satisfaction.
 
-Generate the next 30 days of future dates.
+5. **Modeling (Optional)**: If relevant, build recommendation models or predictive models for content suggestions based on user behavior.
 
---Predict future sales using the trained model.
+## Example: Visualizing Top Genres
 
---Visualization
+Here’s an example of how to visualize the top genres watched:
 
-Plot actual vs predicted sales.
+```python
+import matplotlib.pyplot as plt
 
-Plot forecasted sales for upcoming days.
+# Group by genre and calculate total watch hours
+genre_data = data.groupby('Genre')['Watch Hours'].sum().sort_values(ascending=False)
 
---Requirements
-You can install all dependencies using:
+# Plot top genres
+plt.figure(figsize=(10,6))
+genre_data.head(10).plot(kind='bar', color='skyblue')
+plt.title('Top 10 Genres by Watch Hours')
+plt.xlabel('Genre')
+plt.ylabel('Watch Hours')
+plt.xticks(rotation=45)
+plt.show()
+```
 
-pip install pandas numpy matplotlib seaborn scikit-learn
+## Insights
 
--- Output
-Tabular prediction of future sales
+This analysis allows the following key insights:
 
-Graphical comparison of actual vs predicted sales
+* **Top Genres**: Understanding which genres are most popular among users.
+* **Binge-Watching Trends**: Identifying users' binge-watching habits based on viewing patterns.
+* **Content Recommendation**: By understanding genre preferences and ratings, personalized content suggestions can be made to users.
 
-Forecast plot for next 30 days
+## Contributing
 
--- Notes
-Model is a basic linear regression and may not capture complex trends.
-
-For better accuracy, consider adding additional features like promotions, holidays, etc.
+Feel free to contribute to this project by submitting bug reports, features, or enhancements through issues or pull requests.
 
