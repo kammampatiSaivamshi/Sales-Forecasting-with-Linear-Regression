@@ -108,7 +108,7 @@ Feel free to contribute to this project by submitting bug reports, features, or 
 
 ### 🙋‍♂️ Author
 
-**Vamshi K**
+**Kammampati Saivamshi**
 *Aspiring Data Scientist*
 📫 Reach me on [LinkedIn](https://www.linkedin.com)
 
