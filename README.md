@@ -1,106 +1,90 @@
-# Netflix User Behavior Analysis
+#  Sales Forecasting Using Machine Learning
 
-## Overview
+This project demonstrates a full-cycle machine learning pipeline for **Sales Forecasting**, including data preprocessing, feature engineering, model training, and evaluation. It is designed as part of a real-time internship with a structured step-by-step approach.
 
-This project aims to analyze Netflix user behavior to provide insights into viewing habits, genre preferences, and binge-watching patterns. By examining a dataset of Netflix viewing data, we aim to:
+---
 
-* Identify top genres and their trends over time.
-* Analyze the number of hours watched per user.
-* Visualize binge-watching behaviors.
-* Explore ratings vs. genres to offer personalized content recommendations.
+##  Project Structure
 
-The insights derived from this analysis can help Netflix or other streaming platforms optimize their content recommendations and improve user engagement strategies.
+1. **Data Loading & Exploration**
 
-## Dataset
+   * Importing libraries
+   * Loading the dataset (`train.csv`)
+   * Initial exploration (`head()`, `info()`, `describe()`)
 
-The dataset used in this project contains information about Netflix viewing habits. The data includes details on user behavior, such as:
+2. **Data Cleaning & Preprocessing**
 
-* **User ID**: Unique identifier for each user.
-* **Genre**: The genre of the movie or TV show watched.
-* **Watch Hours**: Total watch hours per user or per title.
-* **Rating**: User ratings for the titles watched.
-* **Date**: Date of the viewing session.
-* **Other Features**: Information like device type, location, or subscription status (if available).
+   * Handling missing values
+   * Converting date formats
+   * Encoding categorical features
 
-## Files
+3. **Feature Engineering**
 
-* `Netflix_User_Behavior_Analysis.ipynb`: Jupyter notebook that contains all the analysis, visualizations, and model building.
-* `netflix_user_data.csv`: The CSV file containing Netflix viewing behavior data.
+   * Extracting useful date parts (month, year, etc.)
+   * Creating new features to enhance model performance
 
-## Requirements
+4. **Modeling & Forecasting**
 
-To run this project, you will need the following Python libraries:
+   * Splitting data into training and testing sets
+   * Using machine learning models (e.g., Linear Regression, Random Forest, XGBoost)
+   * Evaluating models using RMSE, MAE, and R² Score
 
-* pandas
-* numpy
-* matplotlib
-* seaborn
-* scikit-learn
-* plotly
+5. **Conclusion**
 
-## Installation
+   * Best model selected based on performance
+   * Insights for improving sales strategy
 
-You can install the required dependencies by using the following command:
+---
 
-```bash
-pip install -r requirements.txt
-```
+##  Technologies Used
 
-If you don’t have `requirements.txt`, you can manually install the necessary libraries:
+* Python 🐍
+* Pandas, NumPy
+* Scikit-learn
+* XGBoost
+* Matplotlib, Seaborn (for visualization)
+* Jupyter Notebook
 
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn plotly
-```
+---
 
-## Usage
+##  Dataset
 
-1. **Load the Data**: Start by loading the dataset into a pandas DataFrame for exploration.
+The dataset used in this project contains:
 
-```python
-import pandas as pd
+* Date
+* Store ID
+* Product Category
+* Units Sold
+* Revenue
 
-data = pd.read_csv('netflix_user_data.csv')
-```
+*(Dataset path used in notebook: `train.csv`)*
 
-2. **Data Preprocessing**: Clean the dataset by handling missing values, converting categorical features, and preparing the data for analysis.
+---
 
-3. **Exploratory Data Analysis (EDA)**: Explore the dataset by visualizing trends, such as top genres, viewing hours, and user ratings.
+##  How to Run
 
-4. **User Behavior Analysis**:
+1. Clone the repository or download the `.ipynb` notebook.
+2. Make sure you have Python and Jupyter Notebook installed.
+3. Install required libraries:
 
-   * Identify binge-watching behaviors (e.g., users who watched multiple episodes or movies in a short time frame).
-   * Analyze watch hours per user and compare it with their genre preferences.
-   * Visualize ratings vs. genres to understand user satisfaction.
+   ```bash
+   pip install pandas scikit-learn matplotlib seaborn xgboost
+   ```
+4. Run the notebook:
 
-5. **Modeling (Optional)**: If relevant, build recommendation models or predictive models for content suggestions based on user behavior.
+   ```bash
+   jupyter notebook Sales_Forecasting.ipynb
+   ```
 
-## Example: Visualizing Top Genres
+---
 
-Here’s an example of how to visualize the top genres watched:
+##  Future Enhancements
 
-```python
-import matplotlib.pyplot as plt
+* Add time-series based models (e.g., ARIMA, Prophet)
+* Automate hyperparameter tuning
+* Build a Streamlit dashboard for real-time sales forecasting
 
-# Group by genre and calculate total watch hours
-genre_data = data.groupby('Genre')['Watch Hours'].sum().sort_values(ascending=False)
-
-# Plot top genres
-plt.figure(figsize=(10,6))
-genre_data.head(10).plot(kind='bar', color='skyblue')
-plt.title('Top 10 Genres by Watch Hours')
-plt.xlabel('Genre')
-plt.ylabel('Watch Hours')
-plt.xticks(rotation=45)
-plt.show()
-```
-
-## Insights
-
-This analysis allows the following key insights:
-
-* **Top Genres**: Understanding which genres are most popular among users.
-* **Binge-Watching Trends**: Identifying users' binge-watching habits based on viewing patterns.
-* **Content Recommendation**: By understanding genre preferences and ratings, personalized content suggestions can be made to users.
+---
 
 ## Contributing
 
